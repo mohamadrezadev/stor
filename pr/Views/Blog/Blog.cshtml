@@ -1,0 +1,98 @@
+﻿
+@model model.blog
+@{
+    ViewData["Title"] = "Blog";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+@section pre{
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/dropify/css/dropify.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/flag-icon/css/flag-icon.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css-rtl/style-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css-rtl/themes/vertical-modern-menu-template/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css-rtl/themes/vertical-modern-menu-template/style.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css-rtl/custom/custom.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/flag-icon/css/flag-icon.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/quill/katex.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/quill/monokai-sublime.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/quill/quill.snow.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/quill/quill.bubble.css">
+   }
+
+
+<!-- Snow Editor start -->
+<section class="snow-editor">
+    <div class="row">
+        <div class="col s12">
+            <div class="card">
+                <div class="card-content">
+                    
+                    <div class="row">
+                        <div class="col s12">
+                            <div id="snow-wrapper">
+                                <div id="snow-container">
+                                    <form asp-action="create" asp-controller="Blog" enctype="multipart/form-data">
+                                        <div class="row section">
+                                            <label>عنوان مقاله</label>
+                                            <textarea asp-for="titel"></textarea>
+                                        </div>
+                                        <div class="row section">
+                                            <label>مقذمه</label>
+                                            <textarea asp-for="intro" style="grid-column-end:auto"></textarea>
+
+                                        </div>
+                                        <div class="row section">
+                                            <label>متن</label>
+                                            <textarea asp-for="text1" style="grid-column-end:auto"></textarea>
+                                        </div>
+                                        <div class="row section">
+                                            <div class="col s12 m4 l3">
+                                                <p>بارگذاری تصویر</p>
+                                            </div>
+                                            <div class="col s12 m8 l9">
+                                                <input asp-for="image" type="file" id="input-file-now" class="dropify"  data-default-file="" />
+                                            </div>
+                                        </div>
+                                        <div class="row section">
+                                            <div class="col s12 m4 l3">
+                                                <p>بارگذاری ویدیو</p>
+                                            </div>
+                                            <div class="col s12 m8 l9">
+                                                <input asp-for="video" type="file" id="input-file-now" class="dropify"  accept=" video/*" />
+                                            </div>
+                                        </div>
+
+                                        <div class="row section">
+                                            <label>نتیجه گیری</label>
+                                            <textarea asp-for="foter"></textarea>
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <button class="btn waves-effect waves-light right iransans" type="submit" name="action">
+                                               ذخیره
+                                                <i class="material-icons right">send</i>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Snow Editor end -->
+
+@section Scripts{
+
+    <script src="~/app-assets/vendors/quill/katex.min.js"></script>
+    <script src="~/app-assets/vendors/quill/highlight.min.js"></script>
+    <script src="~/app-assets/vendors/quill/quill.min.js"></script>
+    <script src="~/app-assets/js/scripts/form-editor.min.js"></script>
+    <script src="~/app-assets/vendors/dropify/js/dropify.min.js"></script>
+    <script src="~/app-assets/js-rtl/scripts/form-file-uploads-rtl.min.js"></script>
+   
+}

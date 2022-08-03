@@ -1,0 +1,361 @@
+﻿@using BEE;
+@using Microsoft.AspNetCore.Identity;
+@inject UserManager<User> usermaneger;
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor IHttpContextAccessor
+@using BLL;
+@using Newtonsoft.Json;
+@model model.user
+@using DAL;
+@{
+
+    ViewData["Title"] = "index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section pre{ }
+
+<div class="container">
+    <div class="row">
+        @{
+            var user = await usermaneger.FindByNameAsync(User.Identity.Name);
+        }
+        @if (ViewBag.successful != null)
+        {
+            <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <img src="..." class="rounded mr-2" alt="...">
+                    <strong class="mr-auto">Bootstrap</strong>
+                    <small class="text-muted">just now</small>
+                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="toast-body">
+                    @ViewBag.successful
+                </div>
+            </div>
+            
+        }
+
+        <div class="col-12 col-lg-3">
+            <div class="card bg-info my-5 p-5">
+                @if (user.pic == null)
+                {
+                <img src="~/esy/images/user.png" class="img-fluid rounded-circle d-block mx-auto" width="120px" height="120px" alt="user-image">
+                }else
+                { 
+                    <img src="~/iamges1/userimage/@user.pic" class="img-fluid rounded-circle d-block mx-auto" width="120px" height="120px" alt="user-image">
+                }
+
+                <h5 class="text-white text-center mt-3">کاربر : @user.name @user.family </h5>
+            </div>
+            <div class="text-right">
+                <div class="list-group p-0 mb-5 profile">
+                    <a href="#vaziyat" class="list-group-item list-group-item-action font-14" data-toggle="list"> <i class="fa fa-cog align-middle ml-2"></i>مرور وضعیت </a>
+                    <a href="#dore-signup" class="list-group-item list-group-item-action" data-toggle="list"> <i class="fa fa-server  align-middle ml-2"></i>دوره هایی که ثبت نام کرده اید </a>
+                    <a href="#shopping-cart" class="@ViewBag.showbasket list-group-item list-group-item-action " data-toggle="list"><i class="fa fa-shopping-cart align-middle ml-2"></i>سبد خرید </a>
+                    <a href="#ticket" class="list-group-item list-group-item-action " data-toggle="list"><i class="fa fa-tags align-middle ml-2"></i>تیکت ها </a>
+                    <a href="#user-change" class="list-group-item list-group-item-action" data-toggle="list"><i class="fa fa-address-card align-middle ml-2"></i> تغییر مشخصات  </a>
+                    <a href="@Url.Action("logout","Account")" class="list-group-item list-group-item-action btn btn-danger"> <i class=" fa fa-window-close align-middle ml-2"></i> خروج</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-9">
+
+            <div class="tab-content">
+
+                <div class="tab-pane fade show " id="vaziyat">
+                    <!----- Start vaziyat ----->
+                    <div class="card my-5 pb-4 text-right">
+                        <div class="card-header text-center">
+                            <h6 class="mt-2"> مرور وضعیت </h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+
+                                <div class="col-12 col-md-6">
+                                    <div class="card mb-2">
+                                        <div class="card-body d-flex justify-content-between align-items-center">
+                                            <img src="images/university-campus.png" class="img-fluid d-inline-block p-2 rounded bg-warning" alt="courses">
+                                            <div class="d-inline-block text-center">
+                                               
+                                                <p class="mb-0">  </p>
+                                                <small> در سایت وجود دارد </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <div class="card mb-2">
+                                        <div class="card-body d-flex justify-content-between align-items-center">
+                                            <img src="images/a.png" class="img-fluid d-inline-block p-2 rounded bg-warning" alt="courses">
+                                            <div class="d-inline-block text-center">
+                                                <p class="mb-0">   </p>
+                                                <small>  دوره ثبت نام کرده اید</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <div class="card mb-2">
+                                        <div class="card-body d-flex justify-content-between align-items-center">
+                                            <img src="images/shopping-cart.png" class="img-fluid d-inline-block p-2 rounded bg-warning" alt="courses">
+                                            <div class="d-inline-block text-center">
+                                                <p class="mb-0"> 0 دوره  </p>
+                                                <small>  در انتظار پرداخت  </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <div class="card mb-2">
+                                        <div class="card-body d-flex justify-content-between align-items-center">
+                                            <img src="images/wallet-filled-money-tool.png" class="img-fluid d-inline-block p-2 rounded bg-warning" alt="courses">
+                                            <div class="d-inline-block text-center">
+                                                <p class="mb-0">  0 تومان   </p>
+                                                <small>  موجودی قابل تسویه شما  </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="card mt-3">
+                                        <div class="card-body bg-light">
+                                            <p class="mb-2"> <i class="fa fa-bell align-middle"></i>  جدیدترین اعلان ها  </p>
+                                            <small> در تاریخ 1398/01/25 </small>
+                                            <div class="alert alert-info mt-3">
+                                                <p class="font-13 text-center mt-3">کد تخفیف 30 % : Takhfif</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div><!----- End vaziyat ----->
+
+
+                <div class="tab-pane fade show text-center" id="dore-signup">
+                    <!----- Start dore signup ----->
+                    <div class="card my-5 pb-4 text-center">
+                        <div class="card-header">
+                            <h6 class="mt-2 font-14"> دوره هایی که ثبت نام کرده اید  </h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="card mb-3 pb-4 shadow-sm">
+                                @if (user.list_courss != null)
+                                {
+
+                                    var blc = new blcours();
+                                    foreach (var item in user.list_courss)
+                                    {
+                                       
+
+                                        <div class="card-body d-md-flex">
+                                            <img src="~/iamges1/cours/@item.image" class="img-fluid float-lg-right mb-2" alt="html" width="250px" height="300px">
+                                            <div class="d-inline-block pr-3 text-justify my-course">
+                                                <a href="#" class="mb-3 d-block text-center text-dark">@item.titel</a>
+                                                <small>
+                                                    @item.details
+                                                </small>
+                                                <button class="btn btn-primary rounded-pill float-left mt-3 font-12" data-toggle="collapse" data-target="#download1">مشاهده لینک دانلود</button>
+
+                                            </div>
+                                        </div>
+                                        <div class="mt-5 collapse" id="download1">
+                                            <table class="table table-borderless text-right font-13">
+                                                @foreach (var item2 in item.cours_Deteilfiles)
+                                                {
+                                                    <tr>
+                                                        <td> @item2.descript   </td>
+                                                        <td><button class="btn btn-success float-left font-12"><i class="fa fa-download align-middle ml-2"></i>دانلود</button></td>
+                                                    </tr>
+                                                }
+
+                                                <tr>
+                                                    <td>آموزش HTML جلسه 3 - 6</td>
+                                                    <td><button class="btn btn-success float-left font-12"><i class="fa fa-download align-middle ml-2"></i>دانلود</button></td>
+                                                </tr>
+
+                                            </table>
+                                        </div>
+
+                                    }
+
+                                }
+                                else
+                                {
+                                    <div class="card-body d-md-flex">
+                                                هیچ دوره ایی وجود ندارد
+                                    </div>
+
+                                }
+                            </div>
+
+
+                            </div>
+                        </div>
+                </div><!----- End dore signup ----->
+
+
+                <div class="tab-pane fade show text-center @ViewBag.showbasket" id="shopping-cart">
+                    <!----- Start shopping cart----->
+                    @{
+                        var coursid = new List<int>();
+                        if (IHttpContextAccessor.HttpContext.Session.GetString("basket") != null)
+                        {
+                            coursid = JsonConvert.DeserializeObject<List<int>>(IHttpContextAccessor.HttpContext.Session.GetString("basket"));
+                        }
+                        var blcours = new blcours();
+                        var courss = blcours.searchbyids(coursid);
+                    }
+                    <div class="card my-5 pb-4 text-center">
+
+                        <div class="card-header">
+                            <h6>سبد خرید</h6>
+                        </div>
+
+                        <div class="card-body mt-5">
+
+                            <div class="table-responsive">
+                                <table id="myTable" class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>عکس</th>
+                                            <th>نام دوره</th>
+                                            <th>قیمت دوره</th>
+                                            <th class="text-right"><span id="amount" class="amount">قیمت کل</span> </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach (var item in courss)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <div class="product-img">
+                                                        <div class="img-prdct"><img src="~/iamges1/cours/@item.image"></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <p>@item.titel</p>
+                                                </td>
+
+                                                <td>
+                                                    <input type="text" value="@item.price" class="price form-control" disabled>
+                                                </td>
+                                                <td> <span id="amount" class=""></span>@item.price تومان</td>
+
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+
+                                <span class="font-13">قیمت کل :</span><span id="total" class=" mx-2">@courss.Sum(s => s.price).ToString()</span><span class="font-13">تومان</span>
+
+                                <a asp-controller="Payment" asp-action="pyment" class="btn btn-success btn-block mt-3 font-14"> پرداخت</a>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div><!----- End shopping cart ----->
+               
+                <div class="tab-pane fade show " id="ticket">
+                    <!----- Start ticket ----->
+                    <div class="card my-5">
+                        <div class="card-header text-center">
+                            <h6 class="mt-2 font-14"> تیکت های شما </h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+
+                                    <form action="">
+                                        <div class="form-group">
+                                            <label for="title" class="text-right">عنوان</label>
+                                            <input id="title" class="form-control" type="text" name="" placeholder="عنوان مورد نظر خود را وارد کنید ...">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="text">متن پیام</label>
+                                            <textarea id="text" class="form-control" name="" rows="3" placeholder="پیام خود را وارد کنید ..."></textarea>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-info btn-block font-13">ارسال تیکت</button>
+                                    </form>
+
+                                    <p class="font-14 my-5">لیست تیکت های شما :</p>
+
+                                    <div class="alert alert-warning">
+                                        <p class="font-13 vazir mt-3">تاکنون تیکتی برای شما ثبت نشده است !</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!----- End ticket ----->
+
+
+                <div class="tab-pane fade show text-right" id="user-change">
+                    <!----- Start user change ----->
+                    <div class="card my-5">
+                        <div class="card-header">
+                            <h6 class="mt-2 font-14 text-center"> مشخصات کاربری </h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="card text-right my-3">
+                                <div class="card-header bg-primary text-center pb-0 text-white">
+                                    <p class="font-13"> مشخصات کاربری شما : </p>
+                                </div>
+                                <div class="card-body">
+                                    <form asp-action="update" asp-controller="Account" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <p> نام : </p>
+                                            <input asp-for="name" type="text" disabled style="cursor:no-drop" class="form-control" value="@user.name">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <p> نام خانوادگی : </p>
+                                            <input asp-for="family" type="text" disabled style="cursor:no-drop" class="form-control" value="@user.family ">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <p> نام کاربری : </p>
+                                            <input asp-for="username" type="text" class="form-control" value="@user.UserName" disabled style="cursor:no-drop">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <p> ایمیل : </p>
+                                            <input asp-for="email" type="email" class="form-control" value="@user.Email" disabled style="cursor:no-drop">
+                                        </div>
+                                        <div class="form-group">
+                                            <button @*type="submit"*@ name="action" class="btn btn-primary btn-block my-4 font-13"> ثبت تغییرات </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!----- End user change ----->
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+@section Scripts{ }

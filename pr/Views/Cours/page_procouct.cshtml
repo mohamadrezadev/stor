@@ -1,0 +1,117 @@
+﻿
+@model List<BEE.cours>
+@section pre
+{
+}
+<!----- Start category box ----->
+<div class="container">
+    <div class="row my-5">
+
+        <div class="col-md-3 col-sm-6">
+            <div class="card box border-0 shadow mb-3" id="box1">
+                <img src="images/website-design.png" alt="webdesign" class="my-2 mx-auto d-block">
+                <a href="category.html" class="text-center text-white my-2 d-block"> طراحی سایت</a>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+            <div class="card box border-0 shadow mb-3" id="box2">
+                <img src="images/graphic-desig.png" alt="graphic" class="my-2 mx-auto d-block">
+                <a href="category.html" class="text-center text-white my-2 d-block">گرافیک</a>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+            <div class="card box border-0 shadow mb-3" id="box3">
+                <img src="images/computing-code.png" alt="code" class="my-2 mx-auto d-block">
+                <a href="category.html" class="text-center text-white my-2 d-block">برنامه نویسی وب</a>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+            <div class="card box border-0 shadow mb-3" id="box4">
+                <img src="images/programming.png" alt="programming" class="my-2 mx-auto d-block">
+                <a href="category.html" class="text-center text-white my-2 d-block">برنامه نویسی اندروید</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!----- End category box ----->
+<!----- Start course boxes ----->
+<div class="container my-3">
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card custom-card mb-3">
+                    <div class="sub-layer">
+                        <img src="~/iamges1/cours/@item.image" alt="bootstrap" class="img-fluid card-img-top">
+                        <div class="over-layer">
+                            <a asp-action="searchCours" asp-controller="Cours" asp-route-id="@item.id" class="btn btn-primary"> مشاهده و خرید </a>
+                            <span class="badge badge-secondary badge-pill"> 50 <i class="fa fa-shopping-basket pr-1"></i></span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <a href="course.html" class="card-link">@item.titel</a>
+                        <p class="text-justify card-text vazir font-14 mt-3">
+                            @item.time ساعت زمان دوره
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        @*<span class="badge badge-primary badge-pill pt-1">60%</span>*@
+                        <div class="float-left">
+
+                            <small class="text-success mr-2">@item.price تومان</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+
+    </div>
+</div>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        @{
+            int index = 0;
+            <li class="page-item disabled">
+                <a class="page-link" href="@Url.Action("get_skip","Cours",new { c=index+1 })">صفحه بعد</a>
+            </li>
+            var blcours = new BLL.blcours();
+            var t = blcours.gettotal();
+            int count;
+            if (t % 10 == 0)
+            {
+                count = t / 10;
+            }
+            else
+            {
+                count = (t / 10) + 1;
+            }
+
+            for (int i = 1; i <= count; i++)
+            {
+                index = i;
+                <li class="page-item">
+                    <a class="page-link active" data-dt-idx="@i" href="@Url.Action("get_skip","Cours",new { c = i })">@i</a>
+                </li>
+            }
+
+            <li class="page-item disabled">
+
+                <a class="page-link" href="@Url.Action("get_skip","Cours",new { c=index-1 })">صفحه قبل</a>
+            </li>
+
+        }
+    </ul>
+</nav>
+<!----- End course boxes ----->
+
+@section Scripts
+{
+
+}

@@ -1,0 +1,272 @@
+﻿
+@{
+    ViewData["Title"] = "datatecher";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+
+@model List<BEE.teacher>
+
+@section pre
+{
+    <link rel="apple-touch-icon" href="~/app-assets/images/favicon/apple-touch-icon-152x152.png">
+    <link rel="shortcut icon" type="image/x-icon" href="~/app-assets/images/favicon/favicon-32x32.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/flag-icon/css/flag-icon.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/data-tables/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/data-tables/extensions/responsive/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/data-tables/css/select.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css-rtl/style-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css-rtl/themes/vertical-modern-menu-template/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css-rtl/themes/vertical-modern-menu-template/style.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css/pages/data-tables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css-rtl/custom/custom.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/dropify/css/dropify.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/sweetalert/sweetalert.css">
+}
+
+
+<div class="row">
+    <div class="col s12">
+        <div class="card">
+            <div class="card-content">
+                <h4 class="card-title">گزینه های طول صفحه</h4>
+                <div id="modal1" class="modal" style="display:none">
+                    <div class="modal-content">
+                     
+                        <div class="col-12">
+                            <div id="placeholder" class="card card card-default scrollspy">
+                                <div class="card-content">
+                                    <h4 class="card-title">فرم ویرایش اطلاعات</h4>
+                                    <form asp-controller="Teacher" asp-action="update_data" class="formValidate0" id="edittech" method="post" enctype="multipart/form-data">
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input placeholder="جان دویی" id="fn" type="text" name="name">
+                                                <label class="contact-input active" for="name2">نام</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input placeholder="جان دویی" id="ln" type="text" name="family">
+                                                <label class="contact-input active" for="name2">نام خانوادگی</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input placeholder="" id="em" name="email" type="email">
+                                                <label class="contact-input active" for="email"> ایمیل</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input placeholder="جان دویی" id="un" type="text" name="username">
+                                                <label class="contact-input active" for="name2">نام کاربری</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+
+                                                <input placeholder="رمز شما" id="pas" type="password" name="pasword">
+                                                <label class="contact-input active" for="password">رمز عبور</label>
+
+                                            </div>
+
+                                            <p>
+                                                <label>
+                                                    <input type="checkbox" id="chek1" />
+                                                    <span>نمایش رمز عبور</span>
+                                                </label>
+                                            </p>
+
+                                        </div>
+                                        <div class="row section">
+                                            <div class="col s12 m4 l3">
+                                                <p>بارگذاری پروفایل</p>
+                                            </div>
+                                            <div class="col s12 m8 l9">
+                                                <input type="file" id="input-file-now" class="dropify" name="image" data-default-file="" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <button class="btn waves-effect waves-light right iransans btnclose" type="submit" name="action">
+                                                    ثبت اطلاعات
+                                                    <i class="material-icons right">send</i>
+                                                </button>
+                                            </div>
+
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat ">مخالف بودن</a>
+                    </div>
+                    
+                </div>
+                <div class="row">
+
+                    <div class="col s12">
+                        <table id="page-length-option" class="display">
+                            <thead class="col-12">
+                                <tr>
+                                    <td>نام </td>
+                                    <td>نام خانوادگی</td>
+                                    <td>ادرس ایمیل</td>
+                                    <td>نام کاربری</td>
+                                    <td>پروفایل</td>
+                                    <td>تنظیمات</td>
+                                </tr>
+                            </thead>
+                            <tbody class="col-12">
+                                @foreach (var item in Model)
+                                {
+                                    if (item.name!=null& item.family!=null && item.id!=0 )
+                                    {
+                                <tr>
+                                    <td style="display:none">@item.id</td>
+                                    <td>@item.name</td>
+                                    <td>@item.family</td>
+                                    <td>@item.email</td>
+                                    <td>@item.username</td>
+                                    <td style="display:none">@item.password</td>
+                                    <td> <img class="img-prdct" src="~/iamges1/teacher/@item.image" style="width: 50px; height: 50px; border-radius: 50%;" /></td>
+                                    <td><a id="btn1" class="btn btn-floating btn-large cyan pulse modal-trigger btnn " href="#modal1"><i class="material-icons">edit</i></a></td>
+                                    <td><a asp-action="delet" asp-controller="Teacher" asp-route-id="@item.id" id="btn1" style="color:red" class="btn btn-floating btn-large cyan pulse  "><i class="material-icons dp48">delete</i></a></td>
+                                </tr>
+                                    }
+
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts
+
+{
+
+
+    <script src="~/app-assets/vendors/data-tables/js/jquery.dataTables.min.js"></script>
+    <script src="~/app-assets/vendors/data-tables/extensions/responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/app-assets/vendors/data-tables/js/dataTables.select.min.js"></script>
+    <script src="~/app-assets/js/scripts/data-tables.min.js"></script>>
+    <script src="~/app-assets/js/scripts/advance-ui-modals.min.js"></script>
+    <script src="~/app-assets/js/scripts/form-validation.js"></script>
+    <script src="~/app-assets/vendors/dropify/js/dropify.min.js"></script>
+    <script src="~/app-assets/js-rtl/scripts/form-file-uploads-rtl.min.js"></script>
+    <script src="~/app-assets/js-rtl/scripts/extra-components-sweetalert-rtl.min.js"></script>
+    <script src="~/app-assets/vendors/sweetalert/sweetalert-rtl.min.js"></script>
+
+
+    <script>
+    $(document).ready(function () {
+        var idd;
+        var currentrow;
+        String.prototype.toEnglishDigits = function () {
+            var num_dic = {
+                '۰': '0',
+                '۱': '1',
+                '۲': '2',
+                '۳': '3',
+                '۴': '4',
+                '۵': '5',
+                '۶': '6',
+                '۷': '7',
+                '۸': '8',
+                '۹': '9',
+            }
+
+            return parseInt(this.replace(/[۰-۹]/g, function (w) {
+                return num_dic[w]
+            }));
+        }
+        $(".btnn").click(function () {
+
+            currentrow = $(this).closest("tr");
+            idd = currentrow.find("td:eq(0)").text().toEnglishDigits();
+            $("#fn").val(currentrow.find("td:eq(1)").text());
+            $("#ln").val(currentrow.find("td:eq(2)").text());
+            $("#em").val(currentrow.find("td:eq(3)").text());
+            $("#un").val(currentrow.find("td:eq(4)").text());
+            $("#pas").val(currentrow.find("td:eq(5)").text());
+
+        });
+        $("form#edittech").submit(function myfunction(e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            formData.append("id", idd)
+            alert("okkk");
+            $.ajax({
+                type: "POST",
+                enctype: "multipart/form-data",
+                dataType: "json",
+                url: "@Url.Action("update_data", "Teacher")",
+                data: formData,
+                contentType: false,
+                processData: false,
+
+                complete: function () {
+                    $("#Success-message").show();
+                    currentrow.find("tr:tq(1)").text($("#fn").val());
+                    currentrow.find("tr:tq(2)").text($("#ln").val());
+                    currentrow.find("tr:tq(3)").text($("#em").val());
+                    currentrow.find("tr:tq(4)").text($("#un").val());
+                    currentrow.find("tr:tq(5)").text($("#ps").val());
+                    $("#fn").val() ="";
+                    $("#ln").val() ="";
+                    $("#em").val() ="";
+                    $("#un").val() ="";
+                    $("#pas").val() ="";
+
+
+                },
+
+
+
+
+            });
+        });
+        $("#btnsearch").click(function () {
+            alert("ok");
+            @* $.ajax({
+                type: "POST",
+                url: "@Url.Action("Add")",
+                dataType: "Json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    window.location = data.redirect + "?" + M.Chips.getInstance($('.chips')).chipsData;
+                },
+                error: function (req, status, error) {
+                    console.log(msg);
+                }
+            }) *@
+
+        });
+        $("#chek1").click(function () {
+            var x = document.getElementById("pas");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        });
+        $(".btnclose").click(function () {
+            $("#fn").val()="";
+            $("#ln").val() = null;
+            $("#em").val() = null;
+            $("#un").val() = null;
+            $("#pas").val() = null;
+        });
+
+    });
+    </script>
+}

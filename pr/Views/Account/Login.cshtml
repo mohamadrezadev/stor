@@ -1,0 +1,83 @@
+﻿@model model.user
+
+@{
+    Layout = null;
+
+}
+
+
+
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت نام </title>
+    <link rel="stylesheet" href="~/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/bootstrap/bootstrap-rtl.css">
+    <link rel="stylesheet" href="~/css/customcss/style.css">
+    <link rel="stylesheet" href="~/css/fontawesome/css/all.css">
+</head>
+<body>
+    <div class="row d-flex justify-content-center">
+
+        <div class="col-lg-7 col-xl-6 col-md-9 register">
+
+            <div class="card my-5">
+
+                <div class="card-body">
+                    <h5 class="shadow-sm text-center mb-4 py-3">ورود به سایت</h5>
+
+                    <form asp-action="Login" asp-controller="Account" method="post">
+
+                        <div class="form-group">
+                            <label for="">نام کاربری : </label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text  my-icon"> <i class="fa fa-user-plus align-middle"></i></span>
+                                </div>
+                                <input asp-for="username" type="text" class="form-control" placeholder="نام کاربری خود را وارد کنید ">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for=""> رمز عبور : </label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text  my-icon"> <i class="fa fa-lock align-middle"></i></span>
+                                </div>
+                                <input asp-for="password" type="password" class="form-control" placeholder="رمز عبور خود را وارد کنید">
+                            </div>
+                        </div>
+
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input vazir ml-2" value="">یادآوری رمز عبور
+                            </label>
+                        </div>
+                        <div class="alert alert-warning">
+                            @Html.ValidationSummary()
+                        </div>
+
+                      
+
+                        <button type="submit" class="btn btn-primary btn-block rounded-pill custom-btn font-13 my-3">ورود </button>
+
+                        <p class="text-center my-3  font-12 vazir">رمز عبور خود را فراموش کرده اید؟ <a href="#" class="login">بازیابی رمز عبور</a></p>
+
+                        <p class="text-center my-3  font-12 vazir">هنوز در سایت ثبت نام نکرده اید ؟ <a href="@Url.Action("Register","Account")" class="login">ثبت نام</a></p>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/myscript.js"></script>
+</body>
+</html>

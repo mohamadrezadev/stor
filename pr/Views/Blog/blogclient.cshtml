@@ -1,0 +1,145 @@
+﻿@model BEE.blog
+
+@section pre{ }
+
+
+<div class="container">
+    <div class="container">
+        <ul class="breadcrumb bg-white mt-4">
+            <li class="breadcrumb-item"><a href="#" class="font-12 vazir">صفحه اصلی</a></li>
+            <li class="breadcrumb-item"><a href="# " class="pr-2 font-12 vazir">بلاگ</a></li>
+            <li class="breadcrumb-item"><a href="#" class="pr-2 font-12 vazir">راهنمای بهینه سازی وبسایت برای افراد مبتدی</a></li>
+        </ul>
+    </div>
+</div>
+
+<!----- Start article content ----->
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <img src="~/iamges1/blog/@Model.image" alt="article" class="img-fluid px-3">
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-12 my-article">
+            <h1 class="pr-3 my-4">@Model.titel</h1>
+            <div class="mb-5">
+                <span class="text-muted pr-3 font-12"><i class="fa fa-pen ml-2"></i>علی نوروزی</span>
+                <span class="text-muted pr-3 font-12"><i class="fa fa-calendar ml-2"></i>1398/10/8</span>
+                <span class="text-muted pr-3 font-12"><i class="fa fa-eye ml-2"></i>230</span>
+                <span class="text-muted pr-3 font-12">دسته بندی : برنامه نویسی</span>
+            </div>
+            <p class="vazir">
+                @Model.intro
+            </p>
+            <p class="vazir">
+                @Model.text1
+            </p>
+            <p class="vazir">
+                @Model.text2
+            </p>
+            <p class="vazir">
+                @Model.foter
+             </p>
+
+        </div>
+        <div class="row">
+            <div class="col-lg-12 mr-2">
+                <small>برچسب ها : </small>
+                <small class="bg-light rounded-pill px-2 mr-3 text-muted font-12"># برنامه نویسی</small>
+            </div>
+        </div>
+    </div>
+</div>
+<!----- End article content ----->
+<!----- Start article comments ----->
+<div class="container article-comments">
+    <p class="text-info mt-5">نظرات و پیشنهادات</p>
+
+    <form action="" method="">
+
+        <section class='rating-widget mt-2'>
+            <!-- star rating-->
+            <div class='rating-stars'>
+                <ul id='stars'>
+                    <li class='star' data-tooltip='ضعیف' data-value='1'>
+                        <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' data-tooltip='متوسط' data-value='2'>
+                        <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' data-tooltip='خوب' data-value='3'>
+                        <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' data-tooltip='خیلی خوب' data-value='4'>
+                        <i class='fa fa-star fa-fw'></i>
+                    </li>
+                    <li class='star' data-tooltip='عالی' data-value='5'>
+                        <i class='fa fa-star fa-fw'></i>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="row">
+            <div class="col form-group">
+                <input type="text" id="name" class="form-control rounded-pill" placeholder="نام خود را وارد کنید ...">
+            </div>
+            <div class="col form-group">
+                <input type="email" id="email" class="form-control rounded-pill" placeholder="ایمیل خود را وارد کنید ...">
+            </div>
+        </div>
+        <div class="form-group">
+            <textarea cols="30" rows="10" class="form-control w-100 rounded-lg p-3" placeholder="دیدگاه خود را وارد کنید ..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary rounded-pill mr-auto d-block font-13">ارسال</button>
+
+    </form>
+
+    <div class="bg-light my-3 p-2 pb-4">
+
+        <div class="d-flex align-items-center">
+            <p class="text-danger mb-0 vazir font-13">arash</p>
+            <small class="mx-5 text-muted">15 تیر 1398</small>
+        </div>
+        <p class="text-justify my-2 vazir font-13">خیلی عالی و کاربردی بود.</p>
+
+        <div class=" shadow-sm mr-5 w-75 mt-3 p-2 bg-white">
+            <div class="d-flex align-items-center">
+                <p class="text-danger mb-0 vazir font-13">Admin</p>
+                <small class="mx-5 text-muted">15 تیر 1398</small>
+            </div>
+            <p class="text-justify my-2 vazir font-13"> خوشحالیم که براتون مفید بوده</p>
+        </div>
+
+    </div>
+
+    <div class="bg-light my-3 p-2 pb-4">
+        <div class="d-flex align-items-center">
+            <p class="text-danger mb-0 vazir font-13">ali</p>
+            <small class="mx-5 text-muted">15 تیر 1398</small>
+        </div>
+        <p class="text-justify my-2 vazir font-13">
+            بسیار عالی
+        </p>
+    </div>
+
+</div><!----- End article comments ----->
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-sm-12 d-flex justify-content-between">
+            <h6 class="title pb-2">مطالب پیشنهادی</h6>
+        </div>
+    </div>
+</div>
+<div class="container">
+
+    <div class="row mt-3 mb-5">
+        @await Component.InvokeAsync("Blogs")
+    </div>
+ </div>
+    <!----- End article boxes ----->
+
+    @section Scripts{ }

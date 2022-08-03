@@ -1,0 +1,105 @@
+﻿@model List<BEE.blog>
+@{
+    ViewData["Title"] = "readallblogs";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+@section pre{
+    <link rel="apple-touch-icon" href="~/app-assets/images/favicon/apple-touch-icon-152x152.png">
+    <link rel="shortcut icon" type="image/x-icon" href="~/app-assets/images/favicon/favicon-32x32.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/flag-icon/css/flag-icon.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/data-tables/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/data-tables/extensions/responsive/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/data-tables/css/select.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css-rtl/style-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css-rtl/themes/vertical-modern-menu-template/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css-rtl/themes/vertical-modern-menu-template/style.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css/pages/data-tables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css-rtl/custom/custom.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/dropify/css/dropify.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/sweetalert/sweetalert.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css-rtl/pages/page-search.min.css">
+}
+
+
+
+<div class="row">
+    <div class="col s12">
+        <div class="card">
+            <div class="card-content">
+                <h4 class="card-title">گزینه های طول صفحه</h4>
+                
+                <div class="row">
+                    <div id="search-page" class="section">
+                        <div class="row">
+                            <div class="col s12">
+                                <div id="search-wrapper" class="search card z-depth-0 center-align">
+                                    <div class="card-content pb-0 pl-1 pr-1">
+                                        <form asp-action="searching" asp-controller="Cours" method="get">
+                                            <div class="input-field col s12">
+                                                <h5>نتایج جستجوی وب سایت</h5>
+                                                <input name="s" placeholder="جست و جو" id="first_name" type="text" class="search-box validate white search-circle iransans" />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <h6>مربوط به نتایج جستجوی شما</h6>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col s12">
+                        <table class="display">
+                            <thead class="col-12">
+                                <tr>
+                                    <td>ردیف</td>
+                                    <td>عنوان</td>
+                                </tr>
+                            </thead>
+                            <tbody class="col-12">
+                                @{ 
+                                    int count = 1;
+                                }
+                                @foreach (BEE.blog item in ViewBag.blogs)
+                                {
+                                    
+                                    <tr>
+
+                                        <td>@count</td>
+                                        <td>@item.titel</td>
+                                        <td><a asp-action="searchbyid" asp-controller="Blog" asp-route-id="@item.id" id="btn1" class="btn btn-floating btn-large cyan pulse "><i class="material-icons">edit</i></a></td>
+                                        <td><a asp-action="delet"  asp-controller="Blog" asp-route-id="@item.id" id="btn1" style="color:red" class="btn btn-floating btn-large cyan pulse  "><i class="material-icons dp48">delete</i></a></td>
+                                    </tr>
+                                    count++;
+
+
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts{
+    <script src="~/app-assets/vendors/data-tables/js/jquery.dataTables.min.js"></script>
+    <script src="~/app-assets/vendors/data-tables/extensions/responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/app-assets/vendors/data-tables/js/dataTables.select.min.js"></script>
+    <script src="~/app-assets/js/scripts/data-tables.min.js"></script>>
+    <script src="~/app-assets/js/scripts/advance-ui-modals.min.js"></script>
+    <script src="~/app-assets/js/scripts/form-validation.js"></script>
+    <script src="~/app-assets/vendors/dropify/js/dropify.min.js"></script>
+    <script src="~/app-assets/js-rtl/scripts/form-file-uploads-rtl.min.js"></script>
+    <script src="~/app-assets/js-rtl/scripts/extra-components-sweetalert-rtl.min.js"></script>
+    <script src="~/app-assets/vendors/sweetalert/sweetalert-rtl.min.js"></script>
+    <script src="~/app-assets/js/search.min.js"></script>
+
+}

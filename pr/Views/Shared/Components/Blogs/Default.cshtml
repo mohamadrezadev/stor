@@ -1,0 +1,42 @@
+﻿@model List<BEE.blog>
+@section pre
+{
+}
+
+<!----- Start article boxes ----->
+<div class="container">
+    <div class="row mt-3 mb-5">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-6 col-lg-4">
+                <div class="card custom-card mb-3 shadow-sm">
+
+                    <img src="~/iamges1/blog/@item.image" alt="article" class="img-fluid card-img-top">
+
+                    <div class="card-body">
+                        <div class="text-center mb-2 mt-2">
+                            <a href="article.html" class="card-link font-14">@item.titel</a>
+                        </div>
+                        <p class="card-text font-13 vazir">
+                            @item.intro
+                        </p>
+                        <span class="bg-light p-2 text-muted font-12 ">
+                            <i class="fa fa-pen ml-1"></i> ادمین
+                            <i class=" fa fa-eye mx-1"></i>140
+                        </span>
+                        <a asp-action="searchbyid_client" asp-controller="Blog" asp-route-id="@item.id" class="btn float-left read-more">بیشتر بخوانید</a>
+                    </div>
+
+                </div>
+            </div>
+        }
+        
+
+    </div>
+</div>
+
+
+@section Scripts
+{
+
+}

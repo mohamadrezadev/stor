@@ -1,0 +1,177 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "createcours";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+@section pre{
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/dropify/css/dropify.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/flag-icon/css/flag-icon.min.css">
+    <!-- END: VENDOR CSS-->
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css-rtl/style-rtl.min.css">
+    <!-- BEGIN: Page Level CSS-->
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css-rtl/themes/vertical-modern-menu-template/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css-rtl/themes/vertical-modern-menu-template/style.min.css">
+    <link rel="stylesheet" href="~/app-assets/vendors/select2/select2.min.css" type="text/css">
+    <link rel="stylesheet" href="~/app-assets/vendors/select2/select2-materialize.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css-rtl/custom/custom.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css-rtl/pages/page-users.min.css">
+}
+<div class="row">
+    <div class="col s12">
+        <div id="html-validations" class="card card-tabs">
+            <div class="card-content">
+                <div class="card-title">
+                    <div class="row">
+                        <div class="col s12 m6 l10">
+                            <h4 class="card-title">ثبت اطلاعات دوره</h4>
+                        </div>
+                        <div class="col s12 m6 l2">
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="html-view-validations">
+                    <form asp-action="createcours" asp-controller="Cours" class="formValidate0" id="edittech" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <label for="uname0">عنوان دوره*</label>
+                                <input class="validate" required id="uname0" name="titel" type="text">
+                            </div>
+                            <div class="input-field col s12">
+                                <label for="uname0">قیمت*</label>
+                                <input class="validate" required id="uname0" name="price" type="number">
+                            </div>
+                            <div class="input-field col s12">
+                                <label for="uname0">زمان دوره*</label>
+                                <input class="validate" required id="uname0" name="time" type="number">
+                            </div>
+
+                            <div class="row section">
+                                <div class="col s12 m4 l3">
+                                    <p>پروفایل دوره</p>
+                                </div>
+                                <div class="col s12 m8 l9">
+                                    <input type="file" id="input-file-now" class="dropify" name="image" data-default-file="" />
+                                </div>
+                            </div>
+                            <div class="row section">
+                                <div class="col s12 m4 l3">
+                                    <p>ویدیو معرفی</p>
+                                </div>
+                                <div class="col s12 m8 l9">
+                                    <input type="file" id="input-file-now" class="dropify" name="video" data-default-file="" />
+                                </div>
+                            </div>
+
+                            @*<input id="techers" name="idtechers"value="" />*@
+                            <p>ساتید مورد نظر شما</p>
+                            <div class="col s12">
+
+                                <div class="input-field">
+                                    <select name="idtechers" class="browser-default" id="users-movies-select2" multiple="multiple">
+                                        <optgroup label="اساتید">
+                                            @foreach (BEE.teacher item in ViewBag.teacher)
+                                            {
+                                                <option  value="@item.id">@item.name @item.family</option>
+                                               
+                                            }
+                                        </optgroup>
+                                    </select>
+
+                                </div>
+                            </div>
+
+                            <button id="bt" class="btn"></button>
+                            <div class="input-field col s12">
+                                <button id="bttt" class="btn waves-effect waves-light right iransans" type="submit" name="action">
+                                    ثبت دوره
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/app-assets/js/vendors.min.js"></script>
+    <script src="~/app-assets/vendors/jquery-validation/jquery.validate.min.js"></script>
+    <script src="~/app-assets/js/plugins.min.js"></script>
+    <script src="~/app-assets/js/search.min.js"></script>
+    <script src="~/app-assets/js-rtl/custom/custom-script-rtl.min.js"></script>
+    <script src="~/app-assets/js/scripts/customizer.min.js"></script>
+    <script src="~/app-assets/js/scripts/form-validation.js"></script>
+    <script src="~/app-assets/vendors/dropify/js/dropify.min.js"></script>
+    <script src="~/app-assets/js-rtl/scripts/form-file-uploads-rtl.min.js"></script>
+    <script src="~/app-assets/js/scripts/page-users.min.js"></script>
+    <script src="~/app-assets/vendors/select2/select2.full.min.js"></script>
+    <script src="~/app-assets/vendors/jquery-validation/jquery.validate.min.js"></script>
+    <script src="~/app-assets/js/scripts/ui-chips.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        
+        $("#bt").click(function () {
+            var myArray = [];
+            $('.browser-default').each(function () {
+                myArray.push($(this).val());
+                console.log(myArray);
+            });
+            alert($(".browser-default").val());
+            $('#techers').val(myArray);
+            alert($('#techers').val);
+
+
+
+
+            //$('#techers').val(function () {
+            //    for (var i in myArray) {
+            //        $(this).push(myArray[i]);
+            //    }
+            //})
+
+           
+            //myArray.each(function () {
+            //    techers.push($(this).val(i));
+            //});
+
+
+            /*ids.push($("#users-movies-select2").val());*/
+            //for (var i in ids) {
+            //    var techers = $("#techers").val();
+            //    techers.push(ids[i]);
+            //}
+            //ids.each(function (i) {
+            //    var techers = $("#techers").val();
+            //    techers.push(ids[i]);
+            //})
+            //ids.forEach(function (i) {
+            //    var techers = $("#techers").val();
+            //    techers.push(ids[i]);
+            //});
+            //alert("ok");
+            //var ary = [];
+            //ary = $("#tech").val()
+            //for (var i in ids) {
+            //    console.log(ids[i]);
+            //    ary.push(ids[i].parseInt)
+            //}
+            //$("#tech").val(ids);
+            //var ary = [];
+            //ary = $("#tech").val()
+            //for (var i in $("#tech").val()) {
+            //    console.log($("#tech").val()[i]);
+            //}
+            alert("ok")
+        });
+
+
+
+    });
+    </script>
+}

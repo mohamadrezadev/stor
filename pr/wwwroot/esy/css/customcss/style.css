@@ -1,0 +1,667 @@
+@import 'fonts.css';
+
+*{
+    font-family: vazir-med-fa;
+    outline:none !important ;
+}
+
+body{
+    background-color: #ececf8;
+}
+
+a{
+    text-decoration: none !important;
+}
+
+input::placeholder,textarea::placeholder{
+    font-size: 12px !important;
+    font-family: vazir !important;
+}
+
+.vazir{
+    font-family: vazir !important;
+}
+
+.font-12{
+    font-size: 12px;
+}
+
+.font-13{
+    font-size: 13px;
+}
+
+.font-14{
+    font-size: 14px;
+}
+
+button,input,.btn{
+    box-shadow: none !important;
+}
+
+/* ----- Start style for header -----*/
+
+.search-box form{
+    width: 100%;
+}
+
+.cart i{
+    font-size:20px;
+    color: #736dd5;
+}
+
+.mobile-header i{
+    font-size: 20px;
+    color: gray;
+}
+
+.dropdown-cart{
+    z-index: 999 !important;
+    width: 300px !important;
+}
+  
+.dropdown-cart ul > li img{
+    width: 60px;
+    height: 40px;
+}
+  
+.dropdown-cart ul > li small{
+    font-size: 11px !important;
+}
+
+/* ----- End style for header -----*/
+
+/* ----- Start style for menu -----*/
+
+.navbar{
+    z-index: 9 !important;
+}
+
+.custom-navbar > li > a{
+    color: #000 !important;
+}
+
+.dropdown-toggle::after{
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+.custom-dropdown-menu{
+    background-color: #f8f9fa !important;
+    border-radius: 0 !important;
+}
+
+@media(min-width:992px){
+
+    .navbar{
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .custom-nav-item{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .custom-dropdown-menu{
+        opacity: 0 !important;
+        visibility: hidden !important;
+        display: block !important;
+        transition: all 0.3s ease !important;
+        transition-delay: 0.2s !important;
+        top: 79px !important;
+    }
+
+    .dropdown:hover > .custom-dropdown-menu{
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: block !important;
+        top:56px !important;
+    }
+}
+
+/* ----- End style for menu -----*/
+
+/* ----- Start style for middle box -----*/
+
+.middle-box{
+    width: 100%;
+    height: 500px;
+    background-image: url('../../images/intro2-bg.jpg');
+    background-size: 100% 100%;
+}
+
+.middle-box p{
+    line-height: 2.5;
+}
+
+#btn1{
+    border: 2px solid #17a2b8 !important; 
+    border-radius: 0 !important;
+}
+
+#btn2{
+    border: 2px solid #736dd5 !important;
+    color: #736dd5 !important;
+    border-radius: 0 !important;
+}
+
+#btn2:hover{
+    color: #fff !important;
+    background-color:#736dd5 !important ;
+    transition: all ease .3s;
+}
+
+@media(max-width:992px){
+    .middle-box .btn{
+        margin-top: -3px !important;
+    }
+}
+
+/* ----- End style for middle box -----*/
+
+/* ----- Start style for category box -----*/
+
+.box img{
+    width: 60px !important;
+}
+
+#box1{
+    background-color:#32bbcb;
+}
+
+#box2{
+    background-color: #ff8b33;
+}
+
+#box3{
+    background-color: #34fe9b;
+}
+
+#box4{
+    background-color: #736dd5;
+}
+
+/* ----- End style for category box -----*/
+
+/* ----- Start style for course boxex and article boxes -----*/
+
+.title{
+    border-bottom: 3px solid #32bbcb;
+    color: #000;
+}
+
+.sub-layer{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.over-layer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .6);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease-out;
+	border-radius: 2px;
+}
+
+.over-layer .btn{
+    position: absolute;
+    right: 50%;
+    top: 65%;
+    transform: translate(50%, -50%) scale(0);
+	transition: all 0.2s ease-out;
+	border-radius: 35px;
+	font-size: 11px;
+}
+
+.over-layer .badge{
+    position: absolute;
+    right: 50%;
+    top: 20%;
+    transform: translate(50%, -50%) scale(0);
+	transition: all 0.2s ease-out 0.1s;
+	border-radius: 35px;
+	font-size: 10px;
+	font-weight: lighter;
+}
+
+.custom-card:hover .over-layer{
+    opacity: 1;
+    visibility: visible;
+}
+
+.custom-card:hover .over-layer .btn{
+    transform: translate(50%, -50%) scale(1);
+}
+
+.custom-card:hover .over-layer .badge{
+    transform: translate(50%, -50%) scale(1);
+}
+
+.custom-card .card-body a{
+    color: #000;
+    transition: all ease .3s;
+}
+
+.custom-card .card-body a:hover{
+    color: #007bff;
+    transition: all ease .3s;
+}
+
+.custom-card img{
+    height: 230px !important;
+}
+
+.read-more{
+    background: linear-gradient(40deg,#45cafc,#303f9f) !important;
+    font-size: 12px !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+/* ----- End style for course boxex and article boxes -----*/
+
+/* ----- Start style for events + site info + comments + teachers -----*/
+
+.events span{
+    font-size: 11px;
+}
+
+.events  .btn{
+    font-size: 9px !important;
+    border-radius: 40px !important;
+}
+.event-img{
+    height: 370px;
+}
+
+.info i{
+    font-size: 60px;
+    background: linear-gradient(40deg,#45cafc,#303f9f) !important;
+    color: #fff;
+    padding: 20px 30px;
+}
+
+.main-comments img{
+    width: 120px !important;
+    height: 120px;
+}
+
+.teacher-card  img{
+   height: 170px;
+}
+
+/* -----End style for events + site info + comments + teachers -----*/
+
+/* ----- Start style for footer ----- */
+
+.footer-links ul li a{
+    color: #000;
+    font-size: 13px;
+}
+
+.footer-links ul li a:hover{
+    border-bottom: 1px solid #8e8e8e !important;
+}
+
+.social-media a i{
+    font-size: 20px;
+    color: #fff;
+ }
+ 
+ #instagram{
+     background-color: rgb(187, 62, 139) !important;
+ }
+ 
+ .topbutton i{
+     font-size: 20px;
+     color: #17a2b8;
+     cursor: pointer;
+ }
+
+ /* ----- End style for footer ----- */
+
+ /*----- Start style for course page -----*/
+
+ .breadcrumb-item a{
+    color: #8e8e8e;
+}
+
+.course-table > ul > li > a{
+    color: #000;
+}
+
+.course-table > ul > li > a:focus{
+    color: #17a2b8;
+}
+
+#course-info h1{
+    font-size: 16px !important;
+}
+
+.course-text{
+    line-height: 2.5 !important;
+}
+
+.course-items {
+    background-color: rgb(194, 223, 223);
+}
+
+.course-items .count{
+    padding: 3px 10px 3px 10px;
+    border-radius: 50%;
+}
+
+#teacher-info p{
+    line-height: 2.5 !important;
+}
+
+.progress , .progress-bar{
+    height: 27px !important;
+}
+
+.rating-stars ul {
+    list-style-type: none;
+    padding: 0;   
+}
+
+.rating-stars ul > li.star {
+    display: inline-block;
+    cursor:pointer;
+}
+
+.rating-stars ul > li.star > i.fa {
+    font-size: 16px; 
+    color: #ccc; 
+}
+
+.rating-stars ul > li.star.hover > i.fa {
+    color: #FFCC36;
+}
+       
+.rating-stars ul > li.star.selected > i.fa {
+    color: #FF912C;
+}
+
+[data-tooltip] {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+[data-tooltip]:before,
+[data-tooltip]:after {
+    visibility: hidden;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    pointer-events: none;
+}
+
+[data-tooltip]:before {
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    margin-bottom: 5px;
+    margin-left: -40px;
+    padding: 7px;
+    width: 80px;
+    border-radius: 3px;
+    background-color: #000;
+    background-color: hsla(0, 0%, 20%, 0.9);
+    color: #fff;
+    content: attr(data-tooltip);
+    text-align: center;
+    font-size: 10px;
+    line-height: 1.2;
+}
+
+[data-tooltip]:after {
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -5px;
+    width: 0;
+    border-top: 5px solid #000;
+    border-top: 5px solid hsla(0, 0%, 20%, 0.9);
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    content: " ";
+    font-size: 0;
+    line-height: 0;
+}
+
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+    visibility: visible;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+}
+
+.tooltipclicked {
+    visibility: visible;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+}
+
+/*----- End style for course page -----*/
+
+/*----- Start style for sign up + login + forget  page -----*/
+
+.my-icon{
+    background-color: #1cbdf9 !important;
+    color: #fff !important;;
+}
+
+.custom-btn{
+background: linear-gradient(40deg,#45cafc,#303f9f) !important;
+border: none !important;
+z-index: 1;
+position: relative;
+}
+
+label{
+    font-size: 13px;
+}
+
+.custom-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s ease;
+    border-radius: 20px;
+    background: linear-gradient(40deg,#303f9f,#45cafc) !important;
+}
+
+.custom-btn:hover::before {
+    opacity: 1;
+}
+
+.login{
+    border-bottom: 1px dotted #45cafc !important;
+}
+
+.forget{
+    font-size: 12px;
+    border-bottom: 1px dotted #45cafc !important;
+    color: #000;
+    display: inline-block;
+}
+
+/*-----End style for sign up + login + forget  page -----*/
+
+/* ----- Start style for article page -----*/
+
+.my-article h1{
+    font-size: 25px;
+}
+
+.my-article p{
+    line-height: 2.8;
+    font-size: 16px;
+    text-align: justify;
+}
+
+/* ----- End style for article page -----*/
+
+/* ----- Start style for blog -----*/
+
+.page-title{
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(40deg,#303f9f,#45cafc) !important; ;
+}
+
+.filter > form > .form-group{
+    display: inline-block !important;
+}
+
+.filter form select{
+    width: 250px !important;
+    font-size: 13px;
+}
+
+/* ----- End style for blog -----*/
+
+/*----- Start style for category + contact + error404 -----*/
+
+.contact p{
+    line-height: 2;
+}
+
+.custom-checkbox{
+    margin-top: -1px !important;
+}
+
+.error{
+    width: 100%;
+    height: 654px;
+    background-image: url("../../images/404.jpg");
+    background-size: 100% 100%;
+}
+
+.error a{
+    font-size:12px;
+}
+
+/*----- End style for category + contact + error404 -----*/
+
+/*----- Start style for panel user -----*/
+
+.profile a{
+    font-size: 13px;
+}
+
+.profile i{
+    font-size: 16px !important;
+}
+
+#dore-signup small{
+    line-height: 2.3 !important;
+}
+
+
+.button-container{
+	display: flex;
+	align-items: center;
+}
+
+.button-container .form-control{
+	max-width: 80px;
+	text-align: center;
+	display: inline-block;
+	margin: 0px 5px;
+}
+
+#my-table{
+    font-size: 13px;
+}
+
+#my-table img{
+    width: 70px;
+    height: 50px;
+}
+
+
+input:focus,
+button:focus,
+.form-control:focus{
+	outline: none;
+	box-shadow: none;
+}
+
+.form-control:disabled, .form-control[readonly]{
+	background-color: #fff;
+}
+
+.table tr,
+.table tr td{
+	vertical-align: middle;
+}
+
+.button-container{
+	display: flex;
+	align-items: center;
+}
+
+.button-container .form-control{
+	max-width: 80px;
+	text-align: center;
+	display: inline-block;
+	margin: 0px 5px;
+}
+
+#myTable{
+    font-size: 13px;
+}
+
+#myTable .form-control{
+	width: auto;
+	display: inline-block;
+}
+
+.cart-qty-plus,
+.cart-qty-minus{
+	width: 38px;
+	height: 38px;
+	background-color: #fff;
+	border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+
+.cart-qty-plus:hover,
+.cart-qty-minus:hover{
+	background-color: #5161ce;
+	color: #fff;
+}
+
+.img-prdct img{
+	width: 70px;
+	height: 50px;
+}
+
+.price{
+    width: 80px !important;
+}
+
+#user-change input{
+    font-size: 13px !important;
+}
+
+#user-change p{
+    font-size: 13px;
+}
+
+/*----- End style for panel user -----*/

@@ -1,0 +1,110 @@
+﻿@model List<BEE.blog>
+@{
+    ViewData["Title"] = "blogforclient";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section pre{ }
+
+<div class="page-title d-flex flex-column justify-content-center align-items-center mb-4">
+    <h4 class="text-white mb-5">وبلاگ ها</h4>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <form action="" method="">
+                    <div class="input-group">
+                        <input type="search" name="" class="form-control" placeholder="عنوان مورد نظر خود را جستجو کنید ...">
+                        <div class="input-group-append">
+                            <button type="submit" name="" class="btn btn-info font-13">جستجو</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row mb-5">
+        <div class="col-md-5 filter">
+            <form action="" method="">
+                <div class="form-group">
+                    <select class="form-control">
+                        <option>همه دسته بندی ها</option>
+                        <option>برنامه نویسی</option>
+                        <option>گرافیک</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-info font-13">فیلتر</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!----- Start article boxes ----->
+<div class="container">
+    <div class="row mt-3 mb-5">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-6 col-lg-4">
+                <div class="card custom-card  mb-3 shadow-sm">
+
+                    <img src="~/iamges1/blog/@item.image" alt="" class="img-fluid card-img-top">
+
+                    <div class="card-body">
+                        <div class="text-center mb-2 mt-2">
+                            <a href="article.html" class="card-link font-14">@item.titel</a>
+                        </div>
+                        <p class="card-text font-13 vazir">
+                           @item.intro
+                        </p>
+                        <span class="bg-light p-2 text-muted font-12">
+                            <i class="fa fa-pen ml-1"></i> ادمین
+                            <i class=" fa fa-eye mx-1"></i>140
+                        </span>
+                        <a  asp-action="searchbyid_client" asp-controller="Blog" asp-route-id="@item.id" class="btn float-left read-more">بیشتر بخوانید</a>
+                    </div>
+
+                </div>
+            </div>
+        }
+        
+
+    </div>
+</div>
+<!----- End article boxes ----->
+
+<ul class="pagination  justify-content-center mb-5">
+    @{
+        int index = 0;
+        <li class="page-item disabled">
+            <a class="page-link" href="@Url.Action("get_skip","Blog",new { c=index+1 })">صفحه بعد</a>
+        </li>
+        var blcours = new BLL.blblog();
+        var t = blcours.gettotal();
+        int count;
+        if (t % 10 == 0)
+        {
+            count = t / 10;
+        }
+        else
+        {
+            count = (t / 10) + 1;
+        }
+
+        for (int i = 1; i <= count; i++)
+        {
+            index = i;
+            <li class="page-item">
+                <a class="page-link active" data-dt-idx="@i" href="@Url.Action("get_skip","Blog",new { c = i })">@i</a>
+            </li>
+        }
+
+        <li class="page-item disabled">
+
+            <a class="page-link" href="@Url.Action("get_skip","Cours",new { c=index-1 })">صفحه قبل</a>
+        </li>
+
+    }
+</ul>
+
+@section Scripts{ }

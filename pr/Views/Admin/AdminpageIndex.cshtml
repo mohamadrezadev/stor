@@ -1,0 +1,126 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "AdminpageIndex";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+}
+<!--card stats start-->
+<div id="card-stats" class="pt-0">
+    <div class="row">
+        <div class="col s12 m6 l6 xl3">
+            <div class="card gradient-45deg-light-blue-cyan gradient-shadow min-height-100 white-text animate fadeLeft">
+                <div class="padding-4">
+                    <div class="row">
+                        <div class="col s7 m7">
+                            <i class="material-icons background-round mt-5">add_shopping_cart</i>
+                            <p>سفارشات</p>
+                        </div>
+                        <div class="col s5 m5 right-align">
+                            <h5 class="mb-0 white-text">۶۹۰</h5>
+                            <p class="no-margin">جدید</p>
+                            <p>۶,۰۰,۰۰</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m6 l6 xl3">
+            <div class="card gradient-45deg-red-pink gradient-shadow min-height-100 white-text animate fadeLeft">
+                <div class="padding-4">
+                    <div class="row">
+                        <div class="col s7 m7">
+                            <i class="material-icons background-round mt-5">perm_identity</i>
+                            <p>مشتری</p>
+                        </div>
+                        <div class="col s5 m5 right-align">
+                            <h5 class="mb-0 white-text">۱۸۸۵</h5>
+                            <p class="no-margin">جدید</p>
+                            <p>۱,۱۲,۹۰۰</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m6 l6 xl3">
+            <div class="card gradient-45deg-amber-amber gradient-shadow min-height-100 white-text animate fadeRight">
+                <div class="padding-4">
+                    <div class="row">
+                        <div class="col s7 m7">
+                            <i class="material-icons background-round mt-5">timeline</i>
+                            <p>حراجی</p>
+                        </div>
+                        <div class="col s5 m5 right-align">
+                            <h5 class="mb-0 white-text">۸۰%</h5>
+                            <p class="no-margin">رشد</p>
+                            <p>۳,۴۲,۲۳۰</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m6 l6 xl3">
+            <div class="card gradient-45deg-green-teal gradient-shadow min-height-100 white-text animate fadeRight">
+                <div class="padding-4">
+                    <div class="row">
+                        <div class="col s7 m7">
+                            <i class="material-icons background-round mt-5">attach_money</i>
+                            <p>سود</p>
+                        </div>
+                        <div class="col s5 m5 right-align">
+                            <h5 class="mb-0 white-text"> ۸۹۰ تومان</h5>
+                            <p class="no-margin">امروز</p>
+                            <p> ۲۵۰۰۰۰ تومان</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--card stats end-->
+<!--yearly & weekly revenue chart start-->
+<div id="sales-chart">
+    <div class="row">
+        <div class="col s12 m8 l8">
+            <div id="revenue-chart" class="card animate fadeUp">
+                <div class="card-content">
+                    <h4 class="header mt-0">
+                        درآمد برای سال ۲۰۲۰
+                        <span class="purple-text small text-darken-1 ml-1">
+                            <i class="material-icons">keyboard_arrow_up</i> ۱۵.۵۸ %
+                        </span>
+                        <a class="waves-effect waves-light btn gradient-45deg-purple-deep-orange gradient-shadow right">جزئیات</a>
+                    </h4>
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="yearly-revenue-chart">
+                                <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                                <canvas id="thisYearRevenue" class="firstShadow chartjs-render-monitor" height="328" style="display: block; height: 239px; width: 447px;" width="614"></canvas>
+                                <canvas id="lastYearRevenue" height="328" width="614" style="display: block; height: 239px; width: 447px;" class="chartjs-render-monitor"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m4 l4">
+            <div id="weekly-earning" class="card animate fadeUp">
+                <div class="card-content">
+                    <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                    <h4 class="header m-0">درآمد <i class="material-icons right grey-text lighten-3">more_vert</i></h4>
+                    <p class="no-margin grey-text lighten-3 medium-small">دوشنبه ۱۵ - یکشنبه ۲۱</p>
+                    <h3 class="header">
+                        ۸۹۹۰ تومان <i class="material-icons deep-orange-text text-accent-2">arrow_upward</i>
+                    </h3>
+                    <canvas id="monthlyEarning" class="chartjs-render-monitor" height="321" width="625" style="display: block; height: 234px; width: 455px;"></canvas>
+                    <div class="center-align">
+                        <p class="lighten-3">کل درآمد هفتگی</p>
+                        <a class="waves-effect waves-light btn gradient-45deg-purple-deep-orange gradient-shadow">مشاهده کامل</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--yearly & weekly revenue chart end-->

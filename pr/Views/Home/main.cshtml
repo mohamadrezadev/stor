@@ -1,0 +1,595 @@
+﻿
+@{
+    ViewData["Title"] = "main";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!----- Start menu ----->
+<!--<nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm sticky-top">
+
+    <div class="container">
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#mainmenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainmenu">
+            <ul class="navbar-nav pr-0 custom-navbar font-14 text-center">
+                <li class="nav-item ml-3 custom-nav-item"><a href="index.html" class="nav-link">صفحه اصلی</a></li>
+                <li class="nav-item ml-3 dropdown custom-nav-item">
+                    <a href="#" class="nav-link  dropdown-toggle" data-toggle="dropdown">دوره های آموزشی</a>
+
+                    <div class="dropdown-menu custom-dropdown-menu dropdown-menu-right font-13 text-right">
+                        <a href="course.html" class="dropdown-item border-bottom py-2">دوره متخصص طراحی سایت</a>
+                        <a href="course.html" class="dropdown-item border-bottom py-2">دوره آموزش برنامه نویسی اندروید</a>
+                        <a href="course.html" class="dropdown-item border-bottom py-2">دوره  جامع آموزش فتوشاپ</a>
+                        <a href="course.html" class="dropdown-item border-bottom py-2">دوره آموزش پایتون</a>
+                        <a href="course.html" class="dropdown-item py-2">دوره جامع آموزش وردپرس</a>
+                    </div>
+
+                </li>
+                <li class="nav-item ml-3 dropdown custom-nav-item">
+                    <a href="#" class="nav-link  dropdown-toggle" data-toggle="dropdown">صفحات</a>
+
+                    <div class="dropdown-menu  custom-dropdown-menu dropdown-menu-right font-13 text-right">
+                        <a href="panel-user.html" class="dropdown-item border-bottom py-2">پنل کاربری</a>
+                        <a href="search.html" class="dropdown-item border-bottom py-2">جستجو</a>
+                        <a href="error404.html" class="dropdown-item py-2">Error 404</a>
+                    </div>
+
+                </li>
+                <li class="nav-item ml-3 custom-nav-item"><a href="blog.html" class="nav-link">بلاگ</a></li>
+                <li class="nav-item ml-3 custom-nav-item"><a href="contact-us.html" class="nav-link">تماس باما</a></li>
+            </ul>
+        </div>
+    </div>
+
+</nav>-->
+<!----- End menu ----->
+<!----- Start middle box ----->
+<div class="d-none d-md-flex middle-box">
+    <div class="container">
+        <div class="row d-flex justify-content-end">
+            <div class="col-md-6 text-center">
+                <h2 class="text-center text-info my-5 pt-3">کسب مهارت های ویژه بازار کار</h2>
+
+                <p class="text-center pt-1 mb-3">
+                    کسب و کار شما می‌تواند رشد کند. درآمد شما می‌تواند چند برابر شود.
+                    فقط کافی است مسیر درست را بشناسید. کافی است مشتریان خود را در زمان درست،
+                    مکان درست و به روش درست هدف قرار دهید. ما در این مسیر همراه شما هستیم.
+                </p>
+
+                <a href="#" class="btn py-3 px-4 btn-outline-info mt-4 ml-2" id="btn1">شروع کنید</a>
+                <a href="#" class="btn py-3 px-4 mt-4" id="btn2">همه دوره ها</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!----- End middle box ----->
+<!----- Start category box ----->
+<div class="container">
+    <div class="row my-5">
+
+        <div class="col-md-3 col-sm-6">
+            <div class="card box border-0 shadow mb-3" id="box1">
+                <img src="images/website-design.png" alt="webdesign" class="my-2 mx-auto d-block">
+                <a href="category.html" class="text-center text-white my-2 d-block"> طراحی سایت</a>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+            <div class="card box border-0 shadow mb-3" id="box2">
+                <img src="images/graphic-desig.png" alt="graphic" class="my-2 mx-auto d-block">
+                <a href="category.html" class="text-center text-white my-2 d-block">گرافیک</a>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+            <div class="card box border-0 shadow mb-3" id="box3">
+                <img src="images/computing-code.png" alt="code" class="my-2 mx-auto d-block">
+                <a href="category.html" class="text-center text-white my-2 d-block">برنامه نویسی وب</a>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+            <div class="card box border-0 shadow mb-3" id="box4">
+                <img src="images/programming.png" alt="programming" class="my-2 mx-auto d-block">
+                <a href="category.html" class="text-center text-white my-2 d-block">برنامه نویسی اندروید</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!----- End category box ----->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 d-flex justify-content-between">
+            <h6 class="title pb-2">جدیدترین دوره های آموزشی</h6>
+        </div>
+    </div>
+</div>
+
+<!----- Start course boxes ----->
+<div class="container my-3">
+    <div class="row">
+
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card custom-card mb-3">
+                <div class="sub-layer">
+                    <img src="images/bootstrap.jpg" alt="bootstrap" class="img-fluid card-img-top">
+                    <div class="over-layer">
+                        <a href="course.html" class="btn btn-primary"> مشاهده و خرید </a>
+                        <span class="badge badge-secondary badge-pill"> 50 <i class="fa fa-shopping-basket pr-1"></i></span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <a href="course.html" class="card-link">آموزش جامع Bootstrap 4</a>
+                    <p class="text-justify card-text vazir font-14 mt-3">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                        استفاده از طراحان گرافیک است. چاپگرها و متون بلکه
+                        روزنامه و مجله در ستون و سطرآنچنان که لازم است.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <span class="badge badge-primary badge-pill pt-1">60%</span>
+                    <div class="float-left">
+                        <del class="text-muted font-13">120.000 تومان</del>
+                        <small class="text-success mr-2">75.000 تومان</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card custom-card mb-3">
+                <div class="sub-layer">
+                    <img src="images/vuex1.jpg" alt="VUE X" class="img-fluid card-img-top">
+                    <div class="over-layer">
+                        <a href="course.html" class="btn btn-primary"> مشاهده و خرید </a>
+                        <span class="badge badge-secondary badge-pill"> 50 <i class="fa fa-shopping-basket pr-1"></i></span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <a href="course.html" class="card-link">آموزش VUE X</a>
+                    <p class="text-justify card-text vazir font-14 mt-3">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                        استفاده از طراحان گرافیک است. چاپگرها و متون بلکه
+                        روزنامه و مجله در ستون و سطرآنچنان که لازم است.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <span class="badge badge-primary badge-pill pt-1">60%</span>
+                    <div class="float-left">
+                        <del class="text-muted font-13">120.000 تومان</del>
+                        <small class="text-success mr-2">75.000 تومان</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card custom-card mb-3">
+                <div class="sub-layer">
+                    <img src="images/flutter-1.png" alt="Flutter" class="img-fluid card-img-top">
+                    <div class="over-layer">
+                        <a href="course.html" class="btn btn-primary"> مشاهده و خرید </a>
+                        <span class="badge badge-secondary badge-pill"> 50 <i class="fa fa-shopping-basket pr-1"></i></span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <a href="course.html" class="card-link">آموزش Flutter</a>
+                    <p class="text-justify card-text vazir font-14 mt-3">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                        استفاده از طراحان گرافیک است. چاپگرها و متون بلکه
+                        روزنامه و مجله در ستون و سطرآنچنان که لازم است.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <span class="badge badge-primary badge-pill pt-1">60%</span>
+                    <div class="float-left">
+                        <del class="text-muted font-13">120.000 تومان</del>
+                        <small class="text-success mr-2">75.000 تومان</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card custom-card mb-3">
+                <div class="sub-layer">
+                    <img src="images/html-2.png" alt="HTML" class="img-fluid card-img-top">
+                    <div class="over-layer">
+                        <a href="course.html" class="btn btn-primary"> مشاهده و خرید </a>
+                        <span class="badge badge-secondary badge-pill"> 50 <i class="fa fa-shopping-basket pr-1"></i></span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <a href="course.html" class="card-link">آموزش HTML</a>
+                    <p class="text-justify card-text vazir font-14 mt-3">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                        استفاده از طراحان گرافیک است. چاپگرها و متون بلکه
+                        روزنامه و مجله در ستون و سطرآنچنان که لازم است.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <span class="badge badge-primary badge-pill pt-1">60%</span>
+                    <div class="float-left">
+                        <del class="text-muted font-13">120.000 تومان</del>
+                        <small class="text-success mr-2">75.000 تومان</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card custom-card mb-3">
+                <div class="sub-layer">
+                    <img src="images/react-2.png" alt="React Native" class="img-fluid card-img-top">
+                    <div class="over-layer">
+                        <a href="#" class="btn btn-primary"> مشاهده و خرید </a>
+                        <span class="badge badge-secondary badge-pill"> 50 <i class="fa fa-shopping-basket pr-1"></i></span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <a href="course.html" class="card-link">آموزش جامع React Native</a>
+                    <p class="text-justify card-text vazir font-14 mt-3">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                        استفاده از طراحان گرافیک است. چاپگرها و متون بلکه
+                        روزنامه و مجله در ستون و سطرآنچنان که لازم است.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <span class="badge badge-primary badge-pill pt-1">60%</span>
+                    <div class="float-left">
+                        <del class="text-muted font-13">120.000 تومان</del>
+                        <small class="text-success mr-2">75.000 تومان</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card custom-card mb-3">
+                <div class="sub-layer">
+                    <img src="images/php-security-2.png" alt="PHP" class="img-fluid card-img-top">
+                    <div class="over-layer">
+                        <a href="course.html" class="btn btn-primary"> مشاهده و خرید </a>
+                        <span class="badge badge-secondary badge-pill"> 50 <i class="fa fa-shopping-basket pr-1"></i></span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <a href="course.html" class="card-link">آموزش امنیت در PHP</a>
+                    <p class="text-justify card-text vazir font-14 mt-3">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                        استفاده از طراحان گرافیک است. چاپگرها و متون بلکه
+                        روزنامه و مجله در ستون و سطرآنچنان که لازم است.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <span class="badge badge-primary badge-pill pt-1">60%</span>
+                    <div class="float-left">
+                        <del class="text-muted font-13">120.000 تومان</del>
+                        <small class="text-success mr-2">75.000 تومان</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!----- End course boxes ----->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 d-flex justify-content-between">
+            <h6 class="title pb-2">دوره های آموزشی آینده</h6>
+        </div>
+    </div>
+</div>
+
+<!----- Start events ----->
+<div class="container my-3">
+    <div class="row">
+
+        <div class="d-none d-lg-block col-lg-6">
+            <img src="images/bg-1.png" alt="event" class="img-fluid event-img">
+        </div>
+
+        <div class="col-lg-6">
+
+            <div class="events">
+                <a href="course.html" class="d-block mb-3 font-14 text-info">دوره آموزشی UI / UX</a>
+                <p class="font-13">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است</p>
+                <span class="text-muted">تاریخ برگزاری : 1399/8/6</span>
+                <a href="course.html" class="btn read-more float-left ml-3">ادامه مطلب</a>
+                <hr>
+            </div>
+
+            <div class="events">
+                <a href="course.html" class="d-block mb-3 font-14 text-info">دوره آموزشی UI / UX</a>
+                <p class="font-13">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است</p>
+                <span class="text-muted">تاریخ برگزاری : 1399/8/6</span>
+                <a href="course.html" class="btn read-more float-left ml-3">ادامه مطلب</a>
+                <hr>
+            </div>
+
+            <div class="events">
+                <a href="course.html" class="d-block mb-3 font-14 text-info">دوره آموزشی UI / UX</a>
+                <p class="font-13">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است</p>
+                <span class="text-muted">تاریخ برگزاری : 1399/8/6</span>
+                <a href="course.html" class="btn read-more float-left ml-3">ادامه مطلب</a>
+                <hr>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!----- Start events ----->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 d-flex justify-content-between">
+            <h6 class="title pb-2">دستاوردهای ما</h6>
+        </div>
+    </div>
+</div>
+
+<!----- Start site info ----->
+<div class="container py-4">
+    <div class="row">
+
+        <div class="col-sm-4 text-center info">
+            <i class="fas fa-user-graduate"></i>
+            <p class="mt-3 ">دانش آموزان</p>
+            <span id="Partners">0</span>+
+
+        </div>
+
+        <div class="col-sm-4 text-center info">
+            <i class="fa fa-laptop"></i>
+            <p class="mt-3">دوره های آموزشی</p>
+            <span id="Projects">0</span>+
+        </div>
+
+        <div class="col-sm-4 text-center info">
+            <i class="fas fa-award"></i>
+            <p class="mt-3">جوایز</p>
+            <span id="Clients">0</span>+
+        </div>
+
+    </div>
+
+</div>
+<!----- End site info ----->
+<!----- Start comment slider ----->
+<div class="container">
+    <div class="row my-5">
+        <div class="owl-carousel owl-theme owl-rtl">
+
+            <div class="card  main-comments">
+                <img src="images/student.jpg" alt="student" class="img-fluid rounded-circle my-2 d-block mx-auto">
+                <div class="card-body">
+                    <small class="d-block text-center">آرش سبحانی دانشجوی دوره طراحی وب</small>
+                    <small class="d-block text-justify mt-3 vazir">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
+                        از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و
+                        سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع
+                        با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته،
+                        حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را
+                        برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
+                    </small>
+                </div>
+            </div>
+
+            <div class="card  main-comments">
+                <img src="images/student.jpg" alt="" class="img-fluid rounded-circle my-2 d-block mx-auto">
+                <div class="card-body">
+                    <small class="d-block text-center">آرش سبحانی دانشجوی دوره طراحی وب</small>
+                    <small class="d-block text-justify mt-3 vazir">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
+                        از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و
+                        سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع
+                        با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته،
+                        حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را
+                        برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
+                    </small>
+                </div>
+            </div>
+
+            <div class="card main-comments">
+                <img src="images/student.jpg" alt="" class="img-fluid rounded-circle my-2 d-block mx-auto">
+                <div class="card-body">
+                    <small class="d-block text-center">آرش سبحانی دانشجوی دوره طراحی وب</small>
+                    <small class="d-block text-justify mt-3 vazir">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
+                        از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و
+                        سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع
+                        با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته،
+                        حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را
+                        برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
+                    </small>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!----- End comment slider ----->
+
+<div class="container d-none d-lg-block">
+    <div class="row">
+        <div class="col-sm-12 d-flex justify-content-between">
+            <h6 class="title pb-2">بهترین مدرسین ما</h6>
+        </div>
+    </div>
+</div>
+
+<!----- Start best teachers ----->
+<div class="container d-none d-lg-block">
+    <div class="row mt-3 mb-5">
+
+        <div class="col-md-3">
+            <div class="card teacher-card">
+                <img src="images/teacher1.jpg" alt="teacher" class="img-fluid card-img-top">
+                <div class="card-body">
+                    <p class="card-text font-14 text-center"><a>مریم صالحی</a>
+                    <p class="card-text font-12  text-info text-center">مدرس حرفه ای طراحی سایت</p>
+                </div>
+                <div class="card-footer">
+                    <div class="text-center">
+                        <a href="#"><i class="fab fa-instagram ml-2 text-danger"></i></a>
+                        <a href="#"><i class="fab fa-telegram ml-2 text-primary"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp ml-2 text-success"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-3">
+            <div class="card teacher-card">
+                <img src="images/teacher3.jpg" alt="teacher" class="img-fluid card-img-top">
+                <div class="card-body">
+                    <p class="card-text font-14 text-center"><a>محمد انصاری</a>
+                    <p class="card-text font-12  text-info text-center">مدرس حرفه ای اندروید</p>
+                </div>
+                <div class="card-footer">
+                    <div class="text-center">
+                        <a href="#"><i class="fab fa-instagram ml-2 text-danger"></i></a>
+                        <a href="#"><i class="fab fa-telegram ml-2 text-primary"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp ml-2 text-success"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-3">
+            <div class="card teacher-card">
+                <img src="images/teacher2.jpg" alt="teacher" class="img-fluid card-img-top">
+                <div class="card-body">
+                    <p class="card-text font-14 text-center"> <a>سارا یگانه </a>
+                    <p class="card-text font-12  text-info text-center">مدرس حرفه ای  گرافیک</p>
+                </div>
+                <div class="card-footer">
+                    <div class="text-center">
+                        <a href="#"><i class="fab fa-instagram ml-2 text-danger"></i></a>
+                        <a href="#"><i class="fab fa-telegram ml-2 text-primary"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp ml-2 text-success"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-3">
+            <div class="card teacher-card">
+                <img src="images/teacher.jpg" alt="teacher" class="img-fluid card-img-top">
+                <div class="card-body">
+                    <p class="card-text font-14 text-center"><a> علی نوروزی  </a>
+                    <p class="card-text font-12  text-info text-center">مدرس حرفه ای برنامه نویسی وب</p>
+                </div>
+                <div class="card-footer">
+                    <div class="text-center">
+                        <a href="#"><i class="fab fa-instagram ml-2 text-danger"></i></a>
+                        <a href="#"><i class="fab fa-telegram ml-2 text-primary"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp ml-2 text-success"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<!----- End best teachers ----->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 d-flex justify-content-between">
+            <h6 class="title pb-2">تازه ترین مقالات آموزشی</h6>
+        </div>
+    </div>
+</div>
+
+<!----- Start article boxes ----->
+<div class="container">
+    <div class="row mt-3 mb-5">
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card custom-card mb-3 shadow-sm">
+
+                <img src="images/article-1.jpg" alt="article" class="img-fluid card-img-top">
+
+                <div class="card-body">
+                    <div class="text-center mb-2 mt-2">
+                        <a href="article.html" class="card-link font-14">5 دیدگاه متفاوت در کارآفرینان موفق</a>
+                    </div>
+                    <p class="card-text font-13 vazir">
+                        لورم ایپسوم متن ساختگی با
+                        تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                    </p>
+                    <span class="bg-light p-2 text-muted font-12 ">
+                        <i class="fa fa-pen ml-1"></i> ادمین
+                        <i class=" fa fa-eye mx-1"></i>140
+                    </span>
+                    <a href="article.html" class="btn float-left read-more">بیشتر بخوانید</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card custom-card  mb-3 shadow-sm">
+
+                <img src="images/Untitled2.png" alt="" class="img-fluid card-img-top">
+
+                <div class="card-body">
+                    <div class="text-center mb-2 mt-2">
+                        <a href="article.html" class="card-link font-14">راهنمای بهینه سازی وبسایت برای افراد مبتدی</a>
+                    </div>
+                    <p class="card-text font-13 vazir">
+                        لورم ایپسوم متن ساختگی با
+                        تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                    </p>
+                    <span class="bg-light p-2 text-muted font-12">
+                        <i class="fa fa-pen ml-1"></i> ادمین
+                        <i class=" fa fa-eye mx-1"></i>140
+                    </span>
+                    <a href="article.html" class="btn float-left read-more">بیشتر بخوانید</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            <div class="card custom-card  mb-3 shadow-sm">
+
+                <img src="images/article-3.jpg" alt="" class="img-fluid card-img-top">
+
+                <div class="card-body">
+                    <div class="text-center mb-2 mt-2 font-14">
+                        <a href="article.html" class="card-link">3 نکته ای که احتمالا درباره تفکر طراحی نمیدانید</a>
+                    </div>
+                    <p class="card-text font-13 vazir">
+                        لورم ایپسوم متن ساختگی با
+                        تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                    </p>
+                    <span class="bg-light p-2 text-muted font-12">
+                        <i class="fa fa-pen ml-1"></i> ادمین
+                        <i class=" fa fa-eye mx-1"></i>140
+                    </span>
+                    <a href="article.html" class="btn float-left read-more">بیشتر بخوانید</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<!----- End article boxes ----->

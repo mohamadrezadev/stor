@@ -1,0 +1,36 @@
+﻿@model List<BEE.teacher>
+@section pre
+{
+}
+
+<div class="container d-none d-lg-block">
+    <div class="row mt-3 mb-5">
+     @foreach (var item in Model)
+        {
+         <div class="col-md-3">
+            <div class="card teacher-card">
+                <img src="~/iamges1/teacher/@item.image" alt="teacher" class="img-fluid card-img-top">
+                <div class="card-body">
+                    <p class="card-text font-14 text-center">@item.name</p>
+                    <p class="card-text font-12  text-info text-center">@item.family</p>
+                </div>
+                    
+                
+                <div class="card-footer">
+                    <div class="text-center">
+                        <a href="#"><i class="fab fa-instagram ml-2 text-danger"></i></a>
+                        <a href="#"><i class="fab fa-telegram ml-2 text-primary"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp ml-2 text-success"></i></a>
+                    </div>
+                </div>
+            </div>
+         </div>
+      }
+    </div>
+</div>
+     
+
+@section Scripts
+{
+
+}

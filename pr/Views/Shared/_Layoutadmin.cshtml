@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google.">
+    <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template, responsive admin template, eCommerce dashboard, analytic dashboard">
+    <meta name="author" content="ThemeSelect">
+    <title>مدیریت وبسایت </title>
+    <link rel="apple-touch-icon" href="~/app-assets/images/favicon/apple-touch-icon-152x152.png">
+    <link rel="shortcut icon" type="image/x-icon" href="~/app-assets/images/favicon/favicon-32x32.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- BEGIN: VENDOR CSS-->
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/animate-css/animate.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/chartist-js/chartist.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/chartist-js/chartist-plugin-tooltip.css">
+    <!-- END: VENDOR CSS-->
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css-rtl/style-rtl.min.css">
+    <!-- BEGIN: Page Level CSS-->
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css-rtl/themes/vertical-modern-menu-template/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css-rtl/themes/vertical-modern-menu-template/style.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css-rtl/pages/dashboard-modern.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css-rtl/pages/intro.min.css">
+    <!-- END: Page Level CSS-->
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css-rtl/custom/custom.css">
+    <!-- END: Custom CSS-->
+    @RenderSection("pre", required: false)
+</head>
+<body class="vertical-layout vertical-menu-collapsible page-header-dark vertical-modern-menu preload-transitions 2-columns   " data-open="click" data-menu="vertical-modern-menu" data-col="2-columns">
+    <header class="page-topbar" id="header">
+        <div class="navbar navbar-fixed">
+            <nav class="navbar-main navbar-color nav-collapsible sideNav-lock navbar-dark gradient-45deg-indigo-purple no-shadow">
+                <div class="nav-wrapper">
+                    <div class="header-search-wrapper hide-on-med-and-down">
+                        <i class="material-icons">search</i>
+                        <input class="header-search-input z-depth-2 iransans" type="text" name="Search" placeholder="جست و جو..." data-search="template-list">
+                        <ul class="search-list collection display-none"></ul>
+                    </div>
+                    <ul class="navbar-list right">
+                        
+                        <li class="hide-on-large-only search-input-wrapper"><a class="waves-effect waves-block waves-light search-button" href="javascript:void(0);"><i class="material-icons">search</i></a></li>
+                        
+                        @*<li><a class="waves-effect waves-block waves-light profile-button" href="javascript:void(0);" data-target="profile-dropdown"><span class="avatar-status avatar-online"><img src="~/app-assets/images/avatar/avatar-7.png" alt="avatar"><i></i></span></a></li>*@
+                        
+                    </ul>
+                    <!-- translation-button-->
+                    <!-- translation-button-->
+                    <ul class="dropdown-content" id="translation-dropdown">
+                        <li class="dropdown-item"><a class="grey-text text-darken-1" href="#!" data-language="en"><i class="flag-icon flag-icon-ir"></i> فارسی</a></li>
+                        <li class="dropdown-item"><a class="grey-text text-darken-1" href="#!" data-language="en"><i class="flag-icon flag-icon-gb"></i> انگلیسی</a></li>
+           
+                        
+                    </ul>
+                </div>
+                <nav class="display-none search-sm">
+                    <div class="nav-wrapper">
+                        <form id="navbarForm">
+                            <div class="input-field search-input-sm">
+                                <input class="search-box-sm" type="search" required="" id="search" placeholder="Explore Materialize" data-search="template-list">
+                                <label class="label-icon" for="search"><i class="material-icons search-sm-icon">search</i></label><i class="material-icons search-sm-close">close</i>
+                                <ul class="search-list collection search-list-sm display-none"></ul>
+                            </div>
+                        </form>
+                    </div>
+                </nav>
+            </nav>
+        </div>
+
+    </header>
+    <!-- END: Header-->
+    <!-- BEGIN: SideNav-->
+    <aside class="sidenav-main nav-expanded nav-lock nav-collapsible sidenav-light sidenav-active-square">
+        <div class="brand-sidebar">
+            <h1 class="logo-wrapper">
+                <a class="brand-logo darken-1" href="#">
+                    <img class="hide-on-med-and-down" src="~/app-assets/images/logo/materialize-logo-color.png" alt="materialize logo" />
+                </a><a class="navbar-toggler" href="#"><i class="material-icons">radio_button_checked</i></a>
+            </h1>
+        </div>
+        <ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out" data-menu="menu-navigation" data-collapsible="menu-accordion">
+
+            <li class="navigation-header">
+                <a class="navigation-header-text">داشبورد </a><i class="navigation-header-icon material-icons">more_horiz</i>
+            </li>
+            <li class="bold">
+                <a class="waves-effect waves-cyan " href="@Url.Action("index","Admin")"><span class="material-icons-sharp"> صفحه اصلی </span> </a>
+            </li>
+            <li class="bold">
+                <a class="waves-effect waves-cyan " href="@Url.Action("read","Teacher")"><span class="material-icons-sharp"> اساتید </span> </a>
+            </li>
+            <li class="bold">
+                <a class="waves-effect waves-cyan " href="@Url.Action("creteteacher","Teacher")"><span class="material-icons-sharp"> ثبت استاد </span> </a>
+            </li>
+            <li class="bold">
+                <a class="waves-effect waves-cyan " href="@Url.Action("cors","Cours")"><span class="menu-title"> ثبت دوره جدید  </span></a>
+            </li>
+            <li class="bold">
+                <a class="waves-effect waves-cyan " href="@Url.Action("getall","Cours")"><span class="menu-title"> لیست دوره ها  </span></a>
+            </li>
+            <li class="bold">
+
+                <a class="waves-effect waves-cyan " href="@Url.Action("create","Blog")"> <span class="menu-title" data-i18n="Mail">مقاله نویسی </span></a>
+                <a class="waves-effect waves-cyan " href="@Url.Action("readall","Blog")"> <span class="menu-title" data-i18n="Mail">مقالات  </span></a>
+            </li>
+
+
+        </ul>
+        <div class="navigation-background"></div><a class="sidenav-trigger btn-sidenav-toggle btn-floating btn-medium waves-effect waves-light hide-on-large-only" href="#" data-target="slide-out"><i class="material-icons">menu</i></a>
+    </aside>
+    <!-- END: SideNav-->
+    <div class="container">
+        <div id="main">
+
+            @RenderBody()
+
+        </div>
+    </div>
+    <footer class="page-footer footer footer-static footer-dark gradient-45deg-indigo-purple gradient-shadow navbar-border navbar-shadow">
+        <div class="footer-copyright">
+            <div class="container">
+                <span>
+                    &copy; 2020 <a href="#" target="_blank">تیم برنامه نویسی کیان کد</a>
+                    تمامی حقوق محفوظ است.
+                </span>
+            </div>
+        </div>
+    </footer>>
+    <script src="~/app-assets/js/vendors.min.js"></script>
+    <script src="~/app-assets/vendors/chartjs/chart.min.js"></script>
+    <script src="~/app-assets/vendors/chartist-js/chartist.min.js"></script>
+    <script src="~/app-assets/vendors/chartist-js/chartist-plugin-tooltip.js"></script>
+    <script src="~/app-assets/vendors/chartist-js/chartist-plugin-fill-donut.min.js"></script>
+    <script src="~/app-assets/js/plugins.min.js"></script>
+    <script src="~/app-assets/js/search.min.js"></script>
+    <script src="~/app-assets/js-rtl/custom/custom-script-rtl.min.js"></script>
+    <script src="~/app-assets/js/scripts/customizer.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

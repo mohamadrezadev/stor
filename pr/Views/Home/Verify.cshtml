@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "Verify";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Verify</title>
+    <link href="~/Content/bootstrap-rtl.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        @if (ViewBag.IsSuccess == true)
+        {
+            <div class="alert alert-success">
+                <h2>تراکنش با موفقیت انجام شد</h2>
+                <hr />
+                <p>کد پیگیری شما : @ViewBag.RefId</p>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-danger">
+                <h2>تراکنش با شکست مواجه شد</h2>
+                <hr />
+                <p>کد شکست شما : @ViewBag.Status</p>
+            </div>
+        }
+    </div>
+</body>
+</html>

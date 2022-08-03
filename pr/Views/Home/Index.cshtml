@@ -1,0 +1,101 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<!----- Start middle box ----->
+<div class="d-none d-md-flex middle-box">
+    <div class="container">
+        <div class="row d-flex justify-content-end">
+            <div class="col-md-6 text-center">
+                <h2 class="text-center text-info my-5 pt-3">کسب مهارت های ویژه بازار کار</h2>
+
+                <p class="text-center pt-1 mb-3">
+                    کسب و کار شما می‌تواند رشد کند. درآمد شما می‌تواند چند برابر شود.
+                    فقط کافی است مسیر درست را بشناسید. کافی است مشتریان خود را در زمان درست،
+                    مکان درست و به روش درست هدف قرار دهید. ما در این مسیر همراه شما هستیم.
+                </p>
+
+                <a href="#" class="btn py-3 px-4 btn-outline-info mt-4 ml-2" id="btn1">شروع کنید</a>
+                <a href="#" class="btn py-3 px-4 mt-4" id="btn2">همه دوره ها</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!----- End middle box ----->
+<!----- Start category box ----->
+<div class="container">
+    <div class="row my-5">
+
+        <div class="col-md-3 col-sm-6">
+            <div class="card box border-0 shadow mb-3" id="box1">
+                <img src="images/website-design.png" alt="webdesign" class="my-2 mx-auto d-block">
+                <a href="category.html" class="text-center text-white my-2 d-block"> طراحی سایت</a>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+            <div class="card box border-0 shadow mb-3" id="box2">
+                <img src="images/graphic-desig.png" alt="graphic" class="my-2 mx-auto d-block">
+                <a href="category.html" class="text-center text-white my-2 d-block">گرافیک</a>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+            <div class="card box border-0 shadow mb-3" id="box3">
+                <img src="images/computing-code.png" alt="code" class="my-2 mx-auto d-block">
+                <a href="category.html" class="text-center text-white my-2 d-block">برنامه نویسی وب</a>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+            <div class="card box border-0 shadow mb-3" id="box4">
+                <img src="images/programming.png" alt="programming" class="my-2 mx-auto d-block">
+                <a href="category.html" class="text-center text-white my-2 d-block">برنامه نویسی اندروید</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!----- End category box ----->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 d-flex justify-content-between">
+            <h6 class="title pb-2">جدیدترین دوره های آموزشی</h6>
+        </div>
+    </div>
+</div>
+
+<div class="text-center">
+    @await Component.InvokeAsync("Courss")
+</div>
+
+
+<div class="container d-none d-lg-block">
+    <div class="row">
+        <div class="col-sm-12 d-flex justify-content-between">
+            <h6 class="title pb-2">بهترین مدرسین ما</h6>
+        </div>
+    </div>
+</div>
+<!----- Start best teachers ----->
+<div class="text-center">
+    @await Component.InvokeAsync("Teachers")
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 d-flex justify-content-between">
+            <h6 class="title pb-2">تازه ترین مقالات آموزشی</h6>
+        </div>
+    </div>
+</div>
+
+<!----- Start article boxes ----->
+<div class="container">
+    <div class="row mt-3 mb-5">
+        @await Component.InvokeAsync("Blogs")
+    </div>
+</div>
+<!----- End article boxes ----->
