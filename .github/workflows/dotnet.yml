@@ -8,7 +8,6 @@ on:
 jobs:
   build:
     runs-on: debian-latest
-
     steps:
-    - name: clone data
-      run: echo "Hello kiryyyy!"
+      - name: clone data
+        run: echo "Hello kiryyyy!"
