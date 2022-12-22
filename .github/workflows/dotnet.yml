@@ -1,0 +1,14 @@
+
+name: runnnign ci cd
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: debian-latest
+
+    steps:
+    - name: clone data
+      run: echo "Hello kiryyyy!"
