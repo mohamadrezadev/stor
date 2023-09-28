@@ -53,8 +53,8 @@ namespace pr
                 option.LoginPath = "/Account/login";
                 option.SlidingExpiration = true;
             });
-            services.AddControllersWithViews().AddRazorRuntimeCompilation();
-       
+             services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

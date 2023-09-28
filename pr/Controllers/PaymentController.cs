@@ -21,10 +21,11 @@ namespace pr.Controllers
         private UserManager<User> userManager;
 
         private readonly ILogger<PaymentController> _logger;
-
-        public PaymentController(UserManager<User> userManager)
+      
+        public PaymentController( UserManager<User> userManager)
         {
             this.userManager = userManager;
+       
 
         }
 
@@ -46,6 +47,8 @@ namespace pr.Controllers
                     listOrder.Add(new Order_cours { coursId = item.id });
                 }
 
+                HttpContext.Session.SetString("Coursessuser", JsonConvert.SerializeObject(listOrder));
+
                 var order_user = new Order
                 {
                     totalpric = (int)courss.Sum(s => s.price),
@@ -56,26 +59,47 @@ namespace pr.Controllers
 
                 if (order_user != null)
                 {
-                   var order_res= blo.create(order_user);   
-                    var payment = new Payment(order_user.totalpric);
-                    var res = payment.PaymentRequest($"پرداخت فاکتور شماره {order_res.Id}",
-                        "https://localhost:44326/Home/OnlinePayment/" + order_res.Id, "mohamadrezakiani9@yahoo.com", "09104500086");
-                    if (res.Result.Status == 100)
+                    var order_res = blo.create(order_user);
+                    var _Pyament = new Payment(order_user.totalpric);
+                    var callbackUrl = Url.ActionLink(nameof(Verify), "Payment",new {order_res.Id},
+                        protocol: Request.Scheme);
+                    var Result = await _Pyament.PaymentRequest(
+                        "testPayment", callbackUrl, mobile: "09104500086");
+                    if (Result.Status != 100)
                     {
-                        return Redirect("https://sandbox.zarinpal.com/pg/StartPay/" + res.Result.Authority);
+                        return BadRequest(Result);
                     }
-                    else
-                    {
-                        return BadRequest();
-                    }
+                    string readirectrl = $"https://sandbox.zarinpal.com/pg/StartPay/{Result.Authority}";
+                    return Redirect(readirectrl);
+
+
                 }
             }
+
             return null;
 
 
         }
 
+        public async Task<IActionResult> Verify(int orderid, string callbackUrlFront)
+        {
+            string Status = HttpContext.Request.Query["Status"];
+            string Authority = HttpContext.Request.Query["authority"];
+            if (Status != "" & Status.ToString().ToLower() == "ok" && Authority != "")
+            {
+                //var pay = _paymentService.GetPayment(paymentId);
+                var user = await userManager.FindByNameAsync(User.Identity.Name);
 
+               // user.list_courss.Add();
+                HttpContext.Session.Remove("basket");
+                return Redirect("http://localhost:18063/Profile");
+            }
 
+            return BadRequest();
+
+        }
     }
 }
+
+
+
